@@ -147,7 +147,3845 @@
 
                 <div id="content" class="content">
                     <main>
-                        <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
+                        <h1 id="introduction"><a class="header" href="#introduction">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo"><a class="header" href="#todo">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-1"><a class="header" href="#introduction-1">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-1"><a class="header" href="#todo-1">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-2"><a class="header" href="#introduction-2">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-2"><a class="header" href="#todo-2">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-3"><a class="header" href="#introduction-3">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-3"><a class="header" href="#todo-3">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-4"><a class="header" href="#introduction-4">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-4"><a class="header" href="#todo-4">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-5"><a class="header" href="#introduction-5">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-5"><a class="header" href="#todo-5">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-6"><a class="header" href="#introduction-6">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-6"><a class="header" href="#todo-6">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-7"><a class="header" href="#introduction-7">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-7"><a class="header" href="#todo-7">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-8"><a class="header" href="#introduction-8">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-8"><a class="header" href="#todo-8">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-9"><a class="header" href="#introduction-9">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-9"><a class="header" href="#todo-9">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-10"><a class="header" href="#introduction-10">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-10"><a class="header" href="#todo-10">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-11"><a class="header" href="#introduction-11">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-11"><a class="header" href="#todo-11">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-12"><a class="header" href="#introduction-12">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-12"><a class="header" href="#todo-12">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-13"><a class="header" href="#introduction-13">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-13"><a class="header" href="#todo-13">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-14"><a class="header" href="#introduction-14">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-14"><a class="header" href="#todo-14">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-15"><a class="header" href="#introduction-15">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-15"><a class="header" href="#todo-15">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-16"><a class="header" href="#introduction-16">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-16"><a class="header" href="#todo-16">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-17"><a class="header" href="#introduction-17">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-17"><a class="header" href="#todo-17">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-18"><a class="header" href="#introduction-18">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-18"><a class="header" href="#todo-18">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-19"><a class="header" href="#introduction-19">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-19"><a class="header" href="#todo-19">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-20"><a class="header" href="#introduction-20">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-20"><a class="header" href="#todo-20">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-21"><a class="header" href="#introduction-21">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-21"><a class="header" href="#todo-21">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-22"><a class="header" href="#introduction-22">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-22"><a class="header" href="#todo-22">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-23"><a class="header" href="#introduction-23">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-23"><a class="header" href="#todo-23">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-24"><a class="header" href="#introduction-24">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-24"><a class="header" href="#todo-24">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-25"><a class="header" href="#introduction-25">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-25"><a class="header" href="#todo-25">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-26"><a class="header" href="#introduction-26">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-26"><a class="header" href="#todo-26">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-27"><a class="header" href="#introduction-27">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-27"><a class="header" href="#todo-27">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-28"><a class="header" href="#introduction-28">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-28"><a class="header" href="#todo-28">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-29"><a class="header" href="#introduction-29">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-29"><a class="header" href="#todo-29">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-30"><a class="header" href="#introduction-30">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-30"><a class="header" href="#todo-30">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-31"><a class="header" href="#introduction-31">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-31"><a class="header" href="#todo-31">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-32"><a class="header" href="#introduction-32">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-32"><a class="header" href="#todo-32">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-33"><a class="header" href="#introduction-33">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-33"><a class="header" href="#todo-33">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-34"><a class="header" href="#introduction-34">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-34"><a class="header" href="#todo-34">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-35"><a class="header" href="#introduction-35">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-35"><a class="header" href="#todo-35">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-36"><a class="header" href="#introduction-36">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-36"><a class="header" href="#todo-36">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction-37"><a class="header" href="#introduction-37">introduction</a></h1>
+<p>This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.</p>
+<h1 id="todo-37"><a class="header" href="#todo-37">todo</a></h1>
+<p>Contents</p>
+<ul>
+<li>overview of the book</li>
+<li>power automate intro</li>
+<li>creating new custom connectors</li>
+<li>connector definitions
+<ul>
+<li>
+<p>swagger 2.0</p>
+</li>
+<li>
+<p>paths</p>
+</li>
+<li>
+<p>encoding scheme</p>
+</li>
+<li>
+<p>vendor metadata</p>
+</li>
+<li>
+<p>x-ms-summary</p>
+</li>
+<li>
+<p>dynamic schema</p>
+</li>
+<li>
+<p>dynamic properties lookup</p>
+</li>
+<li>
+<p>set policies</p>
+</li>
+<li>
+<p>using dynamic variables inside policies</p>
+</li>
+<li>
+<p>building independent connectors</p>
+</li>
+<li>
+<p>Paconn cli</p>
+</li>
+<li>
+<p>validate, update</p>
+</li>
+<li>
+<p>client secrets</p>
+</li>
+<li>
+<p>certified connectors procedure</p>
+</li>
+<li>
+<p>dealing with large connectors</p>
+</li>
+<li>
+<p>schema empty
+X-ms-summary</p>
+</li>
+<li>
+<p>special characters</p>
+</li>
+<li>
+<p>stack owner, publisher</p>
+</li>
+<li>
+<p>warning paths</p>
+</li>
+<li>
+<p>file picker</p>
+</li>
+<li>
+<p>capability</p>
+</li>
+<li>
+<p>Parameters</p>
+</li>
+<li>
+<p>Definitions</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+<li>
+<p>data connections</p>
+<ul>
+<li>single connection</li>
+<li>multiple auth connection</li>
+<li>dynamic properties</li>
+</ul>
+</li>
+<li>
+<p>webhook triggers</p>
+<ul>
+<li>poll triggers</li>
+<li>push triggers with callback</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributors"><a class="header" href="#contributors">Contributors</a></h1>
 
                     </main>
 
