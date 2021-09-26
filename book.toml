@@ -1,5 +1,27 @@
 [book]
-authors = []
+title = "Power Up with Custom Connector"
+description = "Building Custom Connector using Power Automate"
+authors = ["Nirmal Kumar"]
 language = "en"
 multilingual = false
 src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/nk-gears/power-up-with-custom-connectors-ebook/tree/master/src"
+edit-url-template = "https://github.com/nk-gears/power-up-with-custom-connectors-ebook/tree/master/src/{path}"
+
+[rust]
+edition = "2021"
+
+[output.html.playground]
+editable = true
+line-numbers = true
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
