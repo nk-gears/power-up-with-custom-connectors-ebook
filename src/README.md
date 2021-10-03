@@ -2,9 +2,7 @@
 
 This ebook provides a guidance to wants to build custom connectors for the microsoft's power automate platform. It covers best practices, tricks, tips and few pointers to develop the custom connectors from start to publishing.
 
-
-
-
+More than a book, this document acts like a cookbook with examples and snippets of the apidefinition file. All these example uses Json. If you are comfortable with yml then you can always convert using online tool.
 
 
 # todo
