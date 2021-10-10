@@ -6,7 +6,7 @@
   - [Power Automate](README.md)
   - [Flow](README.md)
   - [Connector Types](README.md)
-  - [Open API](README.md)
+  - [Open API](chapters/intro/open-api/README.md)
 - [Connector Development](README.md)
     - [Import](README.md)
     - [UI Portal](README.md)

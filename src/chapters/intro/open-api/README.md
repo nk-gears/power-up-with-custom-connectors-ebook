@@ -16,29 +16,12 @@ Open API - Quick Introduction
 - A Swagger file contains the definition of all the operations exposed by a API Service including the Input and Output Parameters along with Security like Basic Auth, OAuth or API Key based Authentications.
 
 - A Typical Swagger file looks like this with some important property nodes like paths, definitions, parameters, responses etc.
-
-```
-{
-
-"paths":{
-
-},
-
-"definitions":{
-}
-
-"parameters":{
-}
-
-
-}
-
-
-
-```
+ 
 
 - Request Schema
 
 - Response Schema
 
-
+```json
+ {{#include ../../../snippets/open-api/path.json}}
+```
