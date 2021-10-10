@@ -1,0 +1,5 @@
+- [Advanced Examples](README.md)
+  - [Redirecting to External Data Service/Url](README.md)
+    - [Upload/Download using a Azure Function](README.md)
+    - [Encapsulate Business Feeatures using Azure Function](README.md)
+    - [Secure the Authorization Headers](README.md)
