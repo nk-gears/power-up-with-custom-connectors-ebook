@@ -25,3 +25,14 @@ Open API - Quick Introduction
 ```json
  {{#include ../../../snippets/open-api/path.json}}
 ```
+
+
+
+
+
+
+
+
+
+
+
