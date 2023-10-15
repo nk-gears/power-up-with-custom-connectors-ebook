@@ -1,6 +1,6 @@
 # Power Up - Custom Connectors - Work In Progress
 
-This book contains cookbook recipes to develop custom connectors
+This book contains cookbook recipes which help to create custom connectors for Power Platform
 
 # Summary
 
@@ -88,8 +88,8 @@ Contents
     - single connection
     - multiple auth connection
     - dynamic properties
-    
-  - webhook triggers
+  - actions
+  - triggers
     - poll triggers
-    - push triggers with callback
+    - push triggers - webhook
     

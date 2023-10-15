@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "book":true,
+    "*.ml":true,
+  }
+}

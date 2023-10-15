@@ -25,6 +25,8 @@
 
 - remember the formula
 
+Keep writing and we have chatgpt to finally cleanup and rephrase the words. Why you want to worry ?
+
 Planning : 5%
 Writing - 10 % : so keep flowing the words
 editing - 30 %
@@ -33,3 +35,8 @@ Final review - 10 %
 
 
 
+Features 
+
+- 202 Delayed Process
+- Code Based Processing
+- Change body based on Code Reuqest Body
